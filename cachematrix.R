@@ -1,7 +1,10 @@
-## Put comments here that give an overall description of what your
-## functions do
+## This file contains R functions that are 'able to cache potentially 
+## time-consuming computations.' The makeCacheMatrix function and the cacheSolve
+## function work together to reduce the need to repeatedly caclulate the inverse
+## (using solve) on a matix when the matrix hasn't changed.
 
-## Write a short comment describing this function
+## makeCacheMatrix: This function creates a class-like matrix with functions to
+##                  access and mutate the internal matrix object.
 
 makeCacheMatrix <- function(x = matrix()) {
         m <- NULL
@@ -18,7 +21,9 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## cacheSolve: This function computes the inverse of the matrix held by the
+##             makeCacheMatrix function. If the inverse has been caclulate and the
+##             matix hasn't changed. cacheSolve simply returns the cached copy.
 
 cacheSolve <- function(x, ...) {
         m <- x$getsolve()
